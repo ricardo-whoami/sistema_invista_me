@@ -1,0 +1,25 @@
+{% extends 'investimentos/base.html' %}
+{% block conteudo %}
+    <div class="container">
+        <h1 style="text-align: center; color: grey;">Pesquisa de Investimentos</h1>
+    
+    <form method="GET" action="{% url 'pesquisa' %}">
+        <input style="font-size: 18px; padding: 3px; outline: none; padding-right: 200px;" type="text" name="q" placeholder="Nome do investimento" required>
+        <button type="submit" class="btn btn-success">Pesquisar</button>
+    </form>
+
+    {% if resultados %}
+        <h2>Resultados da Pesquisa:</h2>
+        <ul>
+            {% for investimento in resultados %}
+                <li>
+                    <a href="{% url 'detalhe' investimento.id %}">{{ investimento.investimento }}</a>
+                    - {{ investimento.valor }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+        {% endif %}
+    </div> 
+{% endblock %}
