@@ -78,10 +78,15 @@ WSGI_APPLICATION = 'projeto_invista_me.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# Substituído na aula 24
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres', 
+        'USER': 'postgres.yqsgntdnrjwwaxbsryye', 
+        'PASSWORD': 'GWFN9paM9IHtUCRG',
+        'HOST': 'aws-0-us-west-1.pooler.supabase.com', 
+        'PORT': '5432'
     }
 }
 
